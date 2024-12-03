@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { SearchBarProps } from '../Types';
+import { getProductsFromQuery } from '../services/api';
 
-type SearchBarProps = {
-  query: string;
-  setQuery: (value: string) => void;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-};
+function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
+  const [query, setQuery] = useState('');
 
-function SearchBar({ query, setQuery, onSubmit }:SearchBarProps) {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { results } = await getProductsFromQuery(query);
+    setResults(results);
+    setIsSearched(true);
+  };
+
   return (
     <div>
       <h2 data-testid="home-initial-message">

@@ -3,8 +3,14 @@ export type Category = {
   name: string;
 };
 
-export type CategoryProps = {
-  onChange: (category: string) => void;
+export type CategoriesProps = {
+  setResults: React.Dispatch<React.SetStateAction<Result[]>>;
+  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type SearchBarProps = {
+  setResults: React.Dispatch<React.SetStateAction<Result[]>>;
+  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type Result = {
