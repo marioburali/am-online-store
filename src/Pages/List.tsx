@@ -1,4 +1,5 @@
 import React from 'react';
+import Categories from '../Components/Categories';
 
 function List() {
   return (
@@ -13,6 +14,9 @@ function List() {
         </label>
         <button type="submit">Pesquisar</button>
       </form>
+      <aside>
+        <Categories />
+      </aside>
     </main>
   );
 }
