@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
+import Categories from '../Components/Categories';
 import { getProductsFromCategoryAndQuery } from '../services/api';
-import { Result } from '../types';
 
 function List() {
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -10,10 +11,11 @@ function List() {
     setResults(results);
   }
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Result[]>([]);
+  const [results, setResults] = useState<[]>([]);
   const [isSearched, setIsSearched] = useState(false);
   return (
     <main>
+      <NavLink data-testid="shopping-cart-button" to="/cart">Carrinho</NavLink>
       <h2 data-testid="home-initial-message">
         Digite algum termo de pesquisa ou escolha uma categoria.
       </h2>
