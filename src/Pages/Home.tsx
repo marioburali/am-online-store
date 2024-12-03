@@ -18,7 +18,10 @@ function Home() {
       </aside>
       <section>
         {results.length > 0
-          ? (results.map((prod) => (<ProductCard key={ prod.id } { ...prod } />)))
+          ? (results.map((prod) => (<ProductCard
+              key={ prod.id }
+              { ...prod }
+          />)))
           : (isSearched && <h2>Nenhum produto foi encontrado</h2>)}
       </section>
     </main>

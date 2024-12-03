@@ -8,7 +8,7 @@ function ProductCard(product: Product) {
   return (
     (
       <NavLink to={ `/product/${createURLSlug(title)}` } state={ { product } }>
-        <div data-testid="product" id={ id }>
+        <div data-testid="product-detail-link" id={ id }>
           <p>{title}</p>
           <img src={ thumbnail } alt={ thumbnail } />
           <p>{price}</p>
