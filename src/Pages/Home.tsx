@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Categories from '../Components/Categories';
 import { getProductsFromQuery } from '../services/api';
 import ProductCard from '../Components/ProductCard';
-import { Result } from '../Types';
+import { Product } from '../Types';
 
 function Home() {
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -13,7 +13,7 @@ function Home() {
     setResults(results);
   }
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Result[]>([]);
+  const [results, setResults] = useState<Product[]>([]);
   const [isSearched, setIsSearched] = useState(false);
   return (
     <main>
@@ -38,18 +38,8 @@ function Home() {
       </aside>
       <section>
         {results.length > 0
-          ? (
-            results.map(({ id, title, thumbnail, price }) => (
-              <ProductCard
-                key={ id }
-                title={ title }
-                thumbnail={ thumbnail }
-                price={ price }
-              />))
-          )
-          : (
-            isSearched && <h2>Nenhum produto foi encontrado</h2>
-          )}
+          ? (results.map((prod) => (<ProductCard key={ prod.id } { ...prod } />)))
+          : (isSearched && <h2>Nenhum produto foi encontrado</h2>)}
       </section>
     </main>
   );
