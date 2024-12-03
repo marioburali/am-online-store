@@ -13,13 +13,6 @@ export type SearchBarProps = {
   setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export type CardProps = {
-  keyValue: string;
-  title: string;
-  thumbnail: string;
-  price: number;
-};
-
 export type Product = {
   id: string;
   title: string;
