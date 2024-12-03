@@ -13,13 +13,6 @@ export type SearchBarProps = {
   setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-// export type Product = {
-//   id: string;
-//   title: string;
-//   thumbnail: string;
-//   price: number;
-// };
-
 export type CardProps = {
   keyValue: string;
   title: string;
@@ -30,33 +23,24 @@ export type CardProps = {
 export type Product = {
   id: string;
   title: string;
-  // condition: Condition;
+  condition: string;
   thumbnail_id: string;
   catalog_product_id: string;
-  // listing_type_id: ListingTypeID;
   sanitized_title: string;
   permalink: string;
-  // buying_mode: BuyingMode;
-  // site_id: SiteID;
-  // category_id: CategoryID;
-  // domain_id: DomainID;
+  site_id: string;
+  category_id: string;
+  domain_id: string;
   thumbnail: string;
-  // currency_id: CurrencyID;
   order_backend: number;
   price: number;
   original_price: number | null;
-  // sale_price: SalePrice;
   available_quantity: number;
   official_store_id: number | null;
   use_thumbnail_id: boolean;
   accepts_mercadopago: boolean;
-  // shipping: Shipping;
   stop_time: Date;
-  // seller: Seller;
-  // address: Address;
-  // attributes: Attribute[];
   location: Location;
-  // seller_contact: SellerContact;
   installments: null;
   winner_item_id: null;
   catalog_listing: boolean;
