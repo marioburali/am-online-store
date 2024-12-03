@@ -6,7 +6,7 @@ function Product() {
   const product = location.state.product as ProductType;
   return (
     <main>
-      <div data-testid="product">
+      <div>
         <p data-testid="product-detail-name">{product.title}</p>
         <img
           data-testid="product-detail-image"

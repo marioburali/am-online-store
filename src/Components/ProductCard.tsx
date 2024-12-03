@@ -7,8 +7,12 @@ function ProductCard(product: Product) {
   const { id, title, thumbnail, price } = product;
   return (
     (
-      <NavLink to={ `/product/${createURLSlug(title)}` } state={ { product } }>
-        <div data-testid="product-detail-link" id={ id }>
+      <NavLink
+        data-testid="product-detail-link"
+        to={ `/product/${createURLSlug(title)}` }
+        state={ { product } }
+      >
+        <div data-testid="product" id={ id }>
           <p>{title}</p>
           <img src={ thumbnail } alt={ thumbnail } />
           <p>{price}</p>

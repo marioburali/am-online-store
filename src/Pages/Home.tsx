@@ -19,6 +19,7 @@ function Home() {
       <section>
         {results.length > 0
           ? (results.map((prod) => (<ProductCard
+              data-testid="product"
               key={ prod.id }
               { ...prod }
           />)))
