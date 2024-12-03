@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Categories from '../Components/Categories';
 import ProductCard from '../Components/ProductCard';
 import SearchBar from '../Components/SearchBar';
