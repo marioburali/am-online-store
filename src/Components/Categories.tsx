@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories } from '../services/api';
-import { Category } from '../Types';
+import { Category, CategoryProps } from '../Types';
 
-export default function Categories() {
+export default function Categories({ onChange }: CategoryProps) {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -26,6 +26,7 @@ export default function Categories() {
                 id={ `categoria-${category.id}` }
                 name="category"
                 value={ category.name }
+                onClick={ () => onChange(category.id) }
               />
               <label
                 data-testid="category"

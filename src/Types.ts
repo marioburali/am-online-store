@@ -3,6 +3,10 @@ export type Category = {
   name: string;
 };
 
+export type CategoryProps = {
+  onChange: (category: string) => void;
+};
+
 export type Result = {
   id: string;
   title: string;
