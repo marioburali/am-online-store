@@ -1,5 +1,6 @@
 import { useLocation, NavLink } from 'react-router-dom';
 import { Product as ProductType } from '../Types';
+import ProductCard from '../Components/ProductCard';
 import AddToCart from '../Components/AddToCart';
 
 function Product() {
@@ -8,13 +9,10 @@ function Product() {
   return (
     <main>
       <div>
-        <p data-testid="product-detail-name">{product.title}</p>
-        <img
-          data-testid="product-detail-image"
-          src={ product.thumbnail }
-          alt={ product.thumbnail }
+        <ProductCard
+          data-testid="product"
+          { ...product }
         />
-        <p data-testid="product-detail-price">{product.price}</p>
         <AddToCart datatestid="product-detail-add-to-cart" product={ product } />
         <NavLink to="/cart" data-testid="shopping-cart-button">Carrinho</NavLink>
       </div>
