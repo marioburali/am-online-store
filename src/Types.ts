@@ -47,5 +47,5 @@ export type Product = {
   promotions: null;
   inventory_id: null;
   official_store_name?: string;
-  quantity?: number;
+  quantity: number;
 };
