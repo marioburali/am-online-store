@@ -6,9 +6,9 @@ function ProductCard(product: Product) {
   return (
     (
       <div data-testid="product" id={ id }>
-        <p>{title}</p>
-        <img src={ thumbnail } alt={ thumbnail } />
-        <p>{price}</p>
+        <p data-testid="product-detail-name">{title}</p>
+        <img data-testid="product-detail-image" src={ thumbnail } alt={ thumbnail } />
+        <p data-testid="product-detail-price">{price}</p>
       </div>
     )
   );
