@@ -10,6 +10,7 @@ function ProductCard(product: Product) {
         <img data-testid="product-detail-image" src={ thumbnail } alt={ thumbnail } />
         <p data-testid="product-detail-price">{price}</p>
       </div>
+
     )
   );
 }
