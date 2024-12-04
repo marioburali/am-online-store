@@ -13,6 +13,11 @@ export type SearchBarProps = {
   setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+export type ProductsListProps = {
+  isSearched: boolean,
+  products: Product[],
+};
+
 export type AddToCartProps = {
   datatestid: string,
   product: Product,
