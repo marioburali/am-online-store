@@ -3,10 +3,10 @@ import { useState } from 'react';
 import Categories from '../Components/Categories';
 import ProductCard from '../Components/ProductCard';
 import SearchBar from '../Components/SearchBar';
-import { Result } from '../Types';
+import { Product } from '../Types';
 
 function Home() {
-  const [results, setResults] = useState<Result[]>([]);
+  const [results, setResults] = useState<Product[]>([]);
   const [isSearched, setIsSearched] = useState(false);
 
   return (
@@ -17,18 +17,13 @@ function Home() {
         <Categories setResults={ setResults } setIsSearched={ setIsSearched } />
       </aside>
       <section>
-        {results.length > 0 ? (
-          results.map(({ id, title, thumbnail, price }) => (
-            <ProductCard
-              key={ id }
-              title={ title }
-              thumbnail={ thumbnail }
-              price={ price }
-            />
-          ))
-        ) : (
-          isSearched && <h2>Nenhum produto foi encontrado</h2>
-        )}
+        {results.length > 0
+          ? (results.map((prod) => (<ProductCard
+              data-testid="product"
+              key={ prod.id }
+              { ...prod }
+          />)))
+          : (isSearched && <h2>Nenhum produto foi encontrado</h2>)}
       </section>
     </main>
   );
