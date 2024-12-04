@@ -26,7 +26,7 @@ function Cart() {
     if (updatedCart[id].quantity > 1) {
       updatedCart[id].quantity -= 1;
     } else {
-      delete updatedCart[id];
+      updatedCart[id].quantity = 1;
     }
     updateCart(updatedCart);
   };
