@@ -13,7 +13,6 @@ function Product() {
           data-testid="product"
           { ...product }
         />
-        <p data-testid="product-detail-price">{product.price}</p>
         <AddToCart datatestid="product-detail-add-to-cart" product={ product } />
         <NavLink to="/cart" data-testid="shopping-cart-button">Carrinho</NavLink>
       </div>
