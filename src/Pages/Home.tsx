@@ -4,6 +4,7 @@ import Categories from '../Components/Categories';
 import ProductCard from '../Components/ProductCard';
 import SearchBar from '../Components/SearchBar';
 import { Product } from '../Types';
+import { createURLSlug } from '../helpers/createURLSlug';
 
 function Home() {
   const [results, setResults] = useState<Product[]>([]);
@@ -18,11 +19,19 @@ function Home() {
       </aside>
       <section>
         {results.length > 0
-          ? (results.map((prod) => (<ProductCard
-              data-testid="product"
+          ? (results.map((prod) => (
+            <NavLink
+              data-testid="product-detail-link"
+              to={ `/product/${createURLSlug(prod.title)}` }
+              state={ { product: prod } }
               key={ prod.id }
-              { ...prod }
-          />)))
+            >
+              <ProductCard
+                data-testid="product"
+                { ...prod }
+              />
+            </NavLink>
+          )))
           : (isSearched && <h2>Nenhum produto foi encontrado</h2>)}
       </section>
     </main>
