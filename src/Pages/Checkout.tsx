@@ -15,7 +15,12 @@ function Checkout() {
 
   return (
     <main>
-      <ProductsList isSearched products={ cart } />
+      <div data-testid="checkout-products">
+        {/* {cart.map((item) => (
+          <p key={ item.id }>{item.title}</p>
+        ))} */}
+        <ProductsList isSearched products={ cart } />
+      </div>
       <PaymentForm />
     </main>
   );
