@@ -13,7 +13,7 @@ function ProductsList({ products, isSearched }: ProductsListProps) {
         state={ { product } }
         key={ product.id }
       >
-        <ProductCard { ...product } />
+        <ProductCard { ...product } isDetailedView={ false } />
         <AddToCart datatestid="product-add-to-cart" product={ product } />
       </NavLink>)))
     : (isSearched && <h2>Nenhum produto foi encontrado</h2>);

@@ -58,3 +58,12 @@ export type Product = {
   official_store_name?: string;
   quantity: number;
 };
+
+export type Comment = {
+  email: string;
+  text: string;
+  rating: number;
+};
+export type CommentsList = {
+  [productId: string]: Comment[];
+};
