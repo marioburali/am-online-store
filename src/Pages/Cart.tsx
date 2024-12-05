@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Product } from '../Types';
 
 function Cart() {
@@ -46,36 +47,41 @@ function Cart() {
 
   return (cart.length === 0 ? (
     <h2 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h2>
-  )
-    : (cart.map(({ title, price, id, thumbnail, quantity }) => (
-      <div key={ id }>
-        <p data-testid="shopping-cart-product-name">{title}</p>
-        <img src={ thumbnail } alt={ thumbnail } />
-        <p>{price}</p>
-        <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-        <div>
+  ) : (
+    <div>
+      {cart.map(({ title, price, id, thumbnail, quantity }) => (
+        <div key={ id }>
+          <p data-testid="shopping-cart-product-name">{title}</p>
+          <img src={ thumbnail } alt={ thumbnail } />
+          <p>{price}</p>
+          <p data-testid="shopping-cart-product-quantity">{quantity}</p>
+          <div>
+            <button
+              onClick={ () => decrementQuantity(id) }
+              data-testid="product-decrease-quantity"
+            >
+              -
+            </button>
+            <button
+              onClick={ () => incrementQuantity(id) }
+              data-testid="product-increase-quantity"
+            >
+              +
+            </button>
+          </div>
           <button
-            onClick={ () => decrementQuantity(id) }
-            data-testid="product-decrease-quantity"
+            onClick={ () => removeProduct(id) }
+            data-testid="remove-product"
           >
-            -
+            Remover
           </button>
-          <button
-            onClick={ () => incrementQuantity(id) }
-            data-testid="product-increase-quantity"
-          >
-            +
-          </button>
-        </div>
-        <button
-          onClick={ () => removeProduct(id) }
-          data-testid="remove-product"
-        >
-          Remover
-        </button>
-      </div>
 
-    )))
+        </div>
+
+      ))}
+      <NavLink data-testid="checkout-products" to="/checkout">Pagamento</NavLink>
+    </div>
+  )
 
   );
 }
