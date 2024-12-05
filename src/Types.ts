@@ -23,6 +23,10 @@ export type AddToCartProps = {
   product: Product,
 };
 
+export type CartType = {
+  [id: string]: Product
+};
+
 export type Product = {
   id: string;
   title: string;
