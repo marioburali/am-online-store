@@ -1,9 +1,9 @@
 import React from 'react';
 import { AddToCartProps } from '../Types';
-import { GradientButton } from './ui/button';
+import { CustomButton } from './custom-button';
 
 function AddToCart({ datatestid, product }: AddToCartProps) {
-  function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     const { id } = product;
     const getCart = localStorage.getItem('cart');
@@ -16,13 +16,16 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-  }
+  };
+
   return (
-    <GradientButton
+    <CustomButton
+      variant="destructive"
+      onClick={ handleClick }
       data-testid={ datatestid }
     >
       Adiciona ao carrinho
-    </GradientButton>
+    </CustomButton>
   );
 }
 
