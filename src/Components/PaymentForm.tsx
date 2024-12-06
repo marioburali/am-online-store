@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function PaymentForm() {
-  const navigate = useNavigate();
-  const [isValidForm, setIsValidForm] = useState(true);
-  const [form, setForm] = useState({
+  const INITIAL_STATE = {
     fullname: '',
     email: '',
     cpf: '',
@@ -12,7 +10,11 @@ function PaymentForm() {
     cep: '',
     address: '',
     payment: '',
-  });
+  };
+
+  const navigate = useNavigate();
+  const [isValidForm, setIsValidForm] = useState(true);
+  const [form, setForm] = useState(INITIAL_STATE);
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,7 +40,6 @@ function PaymentForm() {
         <label htmlFor="fullname">
           Nome Completo
           <input
-
             type="text"
             id="fullname"
             name="fullname"
@@ -49,7 +50,6 @@ function PaymentForm() {
         <label htmlFor="email">
           E-mail
           <input
-
             type="text"
             id="email"
             name="email"
@@ -61,7 +61,6 @@ function PaymentForm() {
         <label htmlFor="cpf">
           CPF
           <input
-
             type="text"
             id="cpf"
             name="cpf"
@@ -73,7 +72,6 @@ function PaymentForm() {
         <label htmlFor="phone">
           Telefone
           <input
-
             type="text"
             id="phone"
             name="phone"
@@ -85,7 +83,6 @@ function PaymentForm() {
         <label htmlFor="cep">
           CEP
           <input
-
             type="text"
             id="cep"
             name="cep"
@@ -97,7 +94,6 @@ function PaymentForm() {
         <label htmlFor="address">
           Endereço
           <input
-
             type="text"
             id="address"
             name="address"
@@ -110,7 +106,6 @@ function PaymentForm() {
             htmlFor="ticket"
           >
             <input
-
               type="radio"
               name="payment"
               value="boleto"
@@ -123,7 +118,6 @@ function PaymentForm() {
             htmlFor="visa"
           >
             <input
-
               type="radio"
               name="payment"
               value="visa"
@@ -136,7 +130,6 @@ function PaymentForm() {
             htmlFor="mastercard"
           >
             <input
-
               type="radio"
               name="payment"
               value="mastercard"
@@ -149,7 +142,6 @@ function PaymentForm() {
             htmlFor="elo"
           >
             <input
-
               type="radio"
               name="payment"
               value="elo"

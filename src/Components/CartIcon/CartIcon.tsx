@@ -5,16 +5,12 @@ import { useCartContext } from '../../context/CartContext';
 
 function CartIcon() {
   const { cartLength } = useCartContext();
+
   return (
     <div className="cart-icon">
       <RiShoppingCartLine className="cart" />
       <FaCircle className="circle" />
-      <p
-
-        className="cart-quantity"
-      >
-        {cartLength}
-      </p>
+      <p className="cart-quantity">{cartLength}</p>
     </div>
   );
 }

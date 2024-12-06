@@ -32,9 +32,7 @@ function Cart() {
     updateCart(updatedCart);
   };
 
-  return (Object.values(cart).length === 0 ? (
-    <h2>Seu carrinho está vazio</h2>
-  )
+  return (Object.values(cart).length === 0 ? (<h2>Seu carrinho está vazio</h2>)
     : (
       <div>
         {Object.values(cart).map(({ title, price, id, thumbnail, quantity }) => (
@@ -44,25 +42,10 @@ function Cart() {
             <p>{price}</p>
             <p>{quantity}</p>
             <div>
-              <button
-                onClick={ () => decrementQuantity(id) }
-
-              >
-                -
-              </button>
-              <button
-                onClick={ () => incrementQuantity(id) }
-
-              >
-                +
-              </button>
+              <button onClick={ () => decrementQuantity(id) }>-</button>
+              <button onClick={ () => incrementQuantity(id) }>+</button>
             </div>
-            <button
-              onClick={ () => removeProduct(id) }
-
-            >
-              Remover
-            </button>
+            <button onClick={ () => removeProduct(id) }>Remover</button>
           </div>
 
         ))}

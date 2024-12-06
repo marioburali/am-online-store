@@ -26,10 +26,7 @@ function AddToCart({ product }: AddToCartProps) {
   };
 
   return (
-    <CustomButton
-      variant="destructive"
-      onClick={ handleClick }
-    >
+    <CustomButton variant="destructive" onClick={ handleClick }>
       Adiciona ao carrinho
     </CustomButton>
   );

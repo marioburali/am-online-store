@@ -23,7 +23,6 @@ function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
           <input
             type="text"
             id="query-input"
-
             value={ query }
             onChange={ ({ target }) => setQuery(target.value) }
           />

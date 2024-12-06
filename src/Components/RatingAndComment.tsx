@@ -64,7 +64,6 @@ export default function RatingAndComment({ productId }: { productId: string }) {
             type="email"
             name="email"
             id="email-id"
-
             value={ email }
             onChange={ handleEmailChange }
             placeholder="Email"

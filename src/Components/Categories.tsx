@@ -34,10 +34,7 @@ export default function Categories({ setResults, setIsSearched }: CategoriesProp
                 value={ category.name }
                 onClick={ () => handleCategory(category.id) }
               />
-              <label
-
-                htmlFor={ `categoria-${category.id}` }
-              >
+              <label htmlFor={ `categoria-${category.id}` }>
                 {category.name}
               </label>
             </li>

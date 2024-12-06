@@ -11,9 +11,7 @@ function Product() {
     <main>
       <div>
         <CartIcon />
-        <ProductCard
-          { ...product }
-        />
+        <ProductCard { ...product } />
         <AddToCart product={ product } />
         <NavLink to="/cart">Carrinho</NavLink>
       </div>
