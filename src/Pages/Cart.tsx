@@ -1,15 +1,9 @@
-import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CartType } from '../Types';
+import useCart from '../hooks/useCart';
 
 function Cart() {
-  const [cart, setCart] = useState<CartType>({});
-
-  useEffect(() => {
-    const getCart = localStorage.getItem('cart');
-    const cartItems = getCart ? JSON.parse(getCart) : {};
-    setCart(cartItems);
-  }, []);
+  const { cart, setCart } = useCart();
 
   const updateCart = (updatedCart: CartType) => {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
