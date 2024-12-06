@@ -1,5 +1,6 @@
 import React from 'react';
 import { AddToCartProps } from '../Types';
+import { GradientButton } from './ui/button';
 
 function AddToCart({ datatestid, product }: AddToCartProps) {
   function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
@@ -17,12 +18,11 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
   return (
-    <button
+    <GradientButton
       data-testid={ datatestid }
-      onClick={ handleClick }
     >
       Adiciona ao carrinho
-    </button>
+    </GradientButton>
   );
 }
 
