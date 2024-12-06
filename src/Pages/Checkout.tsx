@@ -6,7 +6,7 @@ function Checkout() {
   const { cart } = useCart();
   return (
     <main>
-      <ProductsList isSearched products={ Object.values(cart) } />
+      <ProductsList isSearched products={ Object.values(cart) } showAddToCart={ false } />
       <PaymentForm />
     </main>
   );

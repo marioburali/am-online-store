@@ -4,6 +4,7 @@ import { useCartContext } from '../../context/CartContext';
 
 function CartIcon() {
   const { cartLength } = useCartContext();
+
   return (
     <div className="cart-icon">
       <RiShoppingCartLine className="cart" />

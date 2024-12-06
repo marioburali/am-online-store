@@ -19,19 +19,19 @@ function ProductCard({ id,
   }, [id]);
 
   return (
-    <div data-testid="product" id={ id }>
-      <p data-testid="product-detail-name">{title}</p>
-      <img data-testid="product-detail-image" src={ thumbnail } alt={ thumbnail } />
-      <p data-testid="product-detail-price">{price}</p>
+    <div id={ id }>
+      <p>{title}</p>
+      <img src={ thumbnail } alt={ thumbnail } />
+      <p>{price}</p>
 
       {isDetailedView && <RatingAndComment productId={ id } />}
 
       {comments.length > 0 ? (
         comments.map((comment, index) => (
           <div key={ index }>
-            <p data-testid="review-card-email">{comment.email}</p>
-            <p data-testid="review-card-evaluation">{comment.text}</p>
-            <p data-testid="review-card-rating">{comment.rating}</p>
+            <p>{comment.email}</p>
+            <p>{comment.text}</p>
+            <p>{comment.rating}</p>
           </div>
         ))
       ) : (

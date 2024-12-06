@@ -3,7 +3,7 @@ import { AddToCartProps, CartType } from '../Types';
 import { CustomButton } from './custom-button';
 import { useCartContext } from '../context/CartContext';
 
-function AddToCart({ datatestid, product }: AddToCartProps) {
+function AddToCart({ product }: AddToCartProps) {
   const { setCartLength } = useCartContext();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -30,7 +30,6 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
     <CustomButton
       variant="gradient"
       onClick={ handleClick }
-      data-testid={ datatestid }
     >
       Adiciona ao carrinho
     </CustomButton>
