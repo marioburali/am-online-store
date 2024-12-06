@@ -3,7 +3,6 @@ import { AddToCartProps, CartType } from '../Types';
 import { useCartContext } from '../context/CartContext';
 
 function AddToCart({ datatestid, product }: AddToCartProps) {
-  // const { setCartLength } = useCart();
   const { setCartLength } = useCartContext();
   function addToCart() {
     const { id } = product;
@@ -17,10 +16,10 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
       cart[id].quantity += 1;
     } else {
       cart[id] = { ...product, quantity: 1 };
-      localStorage.setItem('cartsize', JSON.stringify(cartSize + 1));
-      setCartLength((prevState) => prevState + 1);
     }
 
+    localStorage.setItem('cartsize', JSON.stringify(cartSize + 1));
+    setCartLength((prevState) => prevState + 1);
     localStorage.setItem('cart', JSON.stringify(cart));
   }
   function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
