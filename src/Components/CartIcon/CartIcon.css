@@ -16,6 +16,10 @@
   bottom: 6px;
   color: white;
   font-size: 10px;
+  font-weight: bold;
   position: absolute;
   right: -1px;
+  background-color: slateblue;
+  border-radius: 100%;
+  padding: 4px 6px;
 }

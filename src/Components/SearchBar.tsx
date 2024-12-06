@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { SearchBarProps } from '../Types';
 import { getProductsFromQuery } from '../services/api';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
 
 function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
   const [query, setQuery] = useState('');
@@ -18,17 +20,26 @@ function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
         Digite algum termo de pesquisa ou escolha uma categoria.
       </h2>
       <form onSubmit={ onSubmit }>
-        <label htmlFor="query-input">
-          Search
-          <input
-            type="text"
-            id="query-input"
-            data-testid="query-input"
-            value={ query }
-            onChange={ ({ target }) => setQuery(target.value) }
-          />
-        </label>
-        <button type="submit" data-testid="query-button">Pesquisar</button>
+        <div className="flex w-full max-w-sm items-center space-x-2">
+          <label htmlFor="query-input">
+            <Input
+              type="text"
+              id="query-input"
+              data-testid="query-input"
+              value={ query }
+              onChange={ ({ target }) => setQuery(target.value) }
+            />
+          </label>
+
+          <Button
+            variant="secondary"
+            type="submit"
+            data-testid="query-button"
+          >
+            Pesquisar
+          </Button>
+        </div>
+
       </form>
     </div>
   );
