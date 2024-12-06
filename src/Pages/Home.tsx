@@ -16,13 +16,12 @@ function Home() {
         <div className="container mx-auto flex justify-between items-center">
           <SearchBar setResults={ setProducts } setIsSearched={ setIsSearched } />
           <div className="flex items-center space-x-4">
-            <CartIcon />
             <NavLink
               data-testid="shopping-cart-button"
               to="/cart"
               className="hover:text-gray-200 transition-colors duration-300"
             >
-              Carrinho
+            <CartIcon />
             </NavLink>
           </div>
         </div>

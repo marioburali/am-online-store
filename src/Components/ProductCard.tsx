@@ -20,23 +20,15 @@ function ProductCard({ id,
 
   return (
     <div id={ id }>
-      <p>{title}</p>
+      <h1>{title}</h1>
       <img src={ thumbnail } alt={ thumbnail } />
-      <p>{price}</p>
+      <h2>
+        R$
+        {' '}
+        {price}
+      </h2>
 
       {isDetailedView && <RatingAndComment productId={ id } />}
-
-      {comments.length > 0 ? (
-        comments.map((comment, index) => (
-          <div key={ index }>
-            <p>{comment.email}</p>
-            <p>{comment.text}</p>
-            <p>{comment.rating}</p>
-          </div>
-        ))
-      ) : (
-        <h2>Nenhuma avaliação encontrada</h2>
-      )}
     </div>
   );
 }

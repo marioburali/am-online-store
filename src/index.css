@@ -96,3 +96,28 @@ code {
     @apply bg-background text-foreground;
   }
 }
+
+h1 {
+  font-size: 26px;
+}
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+img {
+  width: 300px; /* Tamanho fixo para a largura */
+  height: 300px; /* Tamanho fixo para a altura */
+  object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+input {
+  max-width: 50%;
+}
+
+textarea {
+  max-width: 50%;
+}
