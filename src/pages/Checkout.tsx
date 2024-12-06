@@ -1,5 +1,5 @@
-import PaymentForm from '../Components/PaymentForm';
-import ProductsList from '../Components/ProductsList';
+import PaymentForm from '../components/PaymentForm';
+import ProductsList from '../components/ProductsList';
 import useCart from '../hooks/useCart';
 
 function Checkout() {

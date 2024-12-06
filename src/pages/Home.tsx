@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import Categories from '../Components/Categories';
-import SearchBar from '../Components/SearchBar';
+import Categories from '../components/Categories';
+import SearchBar from '../components/SearchBar';
 import { Product } from '../Types';
-import ProductsList from '../Components/ProductsList';
-import CartIcon from '../Components/CartIcon/CartIcon';
+import ProductsList from '../components/ProductsList';
+import CartIcon from '../components/CartIcon/CartIcon';
 import logo from '../AM.png';
 
 function Home() {
@@ -15,7 +15,7 @@ function Home() {
     <div className="flex flex-col min-h-screen">
       <header className="bg-gradient-to-r from-[#0B62FF] to-[#2D8CFF] text-white shadow-md p-4 sticky top-0 z-20">
         <div className="container mx-auto flex justify-between items-center">
-          <img className="logo"src={logo} alt="logo" />
+          <img className="logo" src={ logo } alt="logo" />
           <SearchBar setResults={ setProducts } setIsSearched={ setIsSearched } />
           <div className="flex items-center space-x-4">
             <NavLink
