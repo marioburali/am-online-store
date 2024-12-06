@@ -16,9 +16,6 @@ function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
 
   return (
     <div>
-      <h2>
-        Digite algum termo de pesquisa ou escolha uma categoria.
-      </h2>
       <form onSubmit={ onSubmit }>
         <div className="flex w-full max-w-sm items-center space-x-2">
           <label htmlFor="query-input">
@@ -27,6 +24,7 @@ function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
               id="query-input"
               data-testid="query-input"
               value={ query }
+              placeholder='Digite o nome do produto'
               onChange={ ({ target }) => setQuery(target.value) }
             />
           </label>

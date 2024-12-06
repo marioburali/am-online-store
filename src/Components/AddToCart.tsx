@@ -1,6 +1,6 @@
 import React from 'react';
 import { AddToCartProps, CartType } from '../Types';
-import { CustomButton } from './custom-button';
+import { Button } from './ui/button';
 import { useCartContext } from '../context/CartContext';
 
 function AddToCart({ product }: AddToCartProps) {
@@ -27,12 +27,12 @@ function AddToCart({ product }: AddToCartProps) {
   };
 
   return (
-    <CustomButton
+    <Button
       variant="gradient"
       onClick={ handleClick }
     >
       Adiciona ao carrinho
-    </CustomButton>
+    </Button>
   );
 }
 

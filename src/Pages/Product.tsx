@@ -8,14 +8,26 @@ function Product() {
   const location = useLocation();
   const product = location.state.product as ProductType;
   return (
-    <main>
-      <div>
-        <CartIcon />
-        <ProductCard { ...product } />
-        <AddToCart product={ product } />
-        <NavLink to="/cart">Carrinho</NavLink>
-      </div>
-    </main>
+    <div className="flex flex-col min-h-screen">
+      <header className= "bg-gradient-to-r from-[#0B62FF] to-[#2D8CFF] text-white shadow-md p-4 sticky top-0 z-20">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <NavLink
+              to="/cart"
+              className="hover:text-gray-200 transition-colors duration-300"
+            >
+              <CartIcon />
+            </NavLink>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div>
+          <ProductCard { ...product } />
+          <AddToCart product={ product } />
+        </div>
+      </main>
+    </div>
   );
 }
 

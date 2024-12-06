@@ -13,13 +13,13 @@
 }
 
 .cart-quantity {
-  bottom: 6px;
+  bottom: 10px;
   color: white;
   font-size: 10px;
   font-weight: bold;
   position: absolute;
-  right: -1px;
+  right: -8px;
   background-color: slateblue;
-  border-radius: 100%;
-  padding: 4px 6px;
+  border-radius: 50%;
+  padding: 1px 6px;
 }
