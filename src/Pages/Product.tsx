@@ -2,6 +2,7 @@ import { useLocation, NavLink } from 'react-router-dom';
 import { Product as ProductType } from '../Types';
 import ProductCard from '../Components/ProductCard';
 import AddToCart from '../Components/AddToCart';
+import CartIcon from '../Components/CartIcon/CartIcon';
 
 function Product() {
   const location = useLocation();
@@ -9,6 +10,7 @@ function Product() {
   return (
     <main>
       <div>
+        <CartIcon />
         <ProductCard
           data-testid="product"
           { ...product }

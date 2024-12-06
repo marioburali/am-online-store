@@ -4,6 +4,7 @@ import Categories from '../Components/Categories';
 import SearchBar from '../Components/SearchBar';
 import { Product } from '../Types';
 import ProductsList from '../Components/ProductsList';
+import CartIcon from '../Components/CartIcon/CartIcon';
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -11,6 +12,7 @@ function Home() {
 
   return (
     <main>
+      <CartIcon />
       <NavLink data-testid="shopping-cart-button" to="/cart">Carrinho</NavLink>
       <SearchBar setResults={ setProducts } setIsSearched={ setIsSearched } />
       <aside>

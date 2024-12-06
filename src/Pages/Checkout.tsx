@@ -1,21 +1,12 @@
-import { useEffect, useState } from 'react';
-import { Product } from '../Types';
 import PaymentForm from '../Components/PaymentForm';
 import ProductsList from '../Components/ProductsList';
+import useCart from '../hooks/useCart';
 
 function Checkout() {
-  const [cart, setCart] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const getCart = localStorage.getItem('cart');
-    const cartItems = getCart ? JSON.parse(getCart) : {};
-
-    setCart(Object.values(cartItems));
-  }, []);
-
+  const { cart } = useCart();
   return (
     <main>
-      <ProductsList isSearched products={ cart } />
+      <ProductsList isSearched products={ Object.values(cart) } />
       <PaymentForm />
     </main>
   );
