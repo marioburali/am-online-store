@@ -1,7 +1,7 @@
 .cart-icon {
   display: inline-block;
-  position: relative;
   font-size: 24px;
+  position: relative;
 }
 
 .circle {
@@ -19,3 +19,5 @@
   position: absolute;
   right: -1px;
 }
+
+/*
