@@ -1,10 +1,10 @@
 import React from 'react';
-import { AddToCartProps, CartType } from '../Types';
-import { useCartContext } from '../context/CartContext';
+import { AddToCartProps } from '../Types';
+import { CustomButton } from './custom-button';
 
 function AddToCart({ datatestid, product }: AddToCartProps) {
-  const { setCartLength } = useCartContext();
-  function addToCart() {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     const { id } = product;
     const getCartItems = localStorage.getItem('cart');
     const cart = getCartItems ? JSON.parse(getCartItems) as CartType : {};
@@ -21,18 +21,16 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
     localStorage.setItem('cartsize', JSON.stringify(cartSize + 1));
     setCartLength((prevState) => prevState + 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-  }
-  function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    event.preventDefault();
-    addToCart();
-  }
+  };
+
   return (
-    <button
-      data-testid={ datatestid }
+    <CustomButton
+      variant="destructive"
       onClick={ handleClick }
+      data-testid={ datatestid }
     >
       Adiciona ao carrinho
-    </button>
+    </CustomButton>
   );
 }
 
