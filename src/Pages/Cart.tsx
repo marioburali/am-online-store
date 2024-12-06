@@ -32,41 +32,24 @@ function Cart() {
     updateCart(updatedCart);
   };
 
-  return (Object.values(cart).length === 0 ? (
-    <h2 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h2>
-  )
+  return (Object.values(cart).length === 0 ? (<h2>Seu carrinho está vazio</h2>)
     : (
       <div>
         {Object.values(cart).map(({ title, price, id, thumbnail, quantity }) => (
           <div key={ id }>
-            <p data-testid="shopping-cart-product-name">{title}</p>
+            <p>{title}</p>
             <img src={ thumbnail } alt={ thumbnail } />
             <p>{price}</p>
-            <p data-testid="shopping-cart-product-quantity">{quantity}</p>
+            <p>{quantity}</p>
             <div>
-              <button
-                onClick={ () => decrementQuantity(id) }
-                data-testid="product-decrease-quantity"
-              >
-                -
-              </button>
-              <button
-                onClick={ () => incrementQuantity(id) }
-                data-testid="product-increase-quantity"
-              >
-                +
-              </button>
+              <button onClick={ () => decrementQuantity(id) }>-</button>
+              <button onClick={ () => incrementQuantity(id) }>+</button>
             </div>
-            <button
-              onClick={ () => removeProduct(id) }
-              data-testid="remove-product"
-            >
-              Remover
-            </button>
+            <button onClick={ () => removeProduct(id) }>Remover</button>
           </div>
 
         ))}
-        <NavLink to="/checkout" data-testid="checkout-products">Pagamento</NavLink>
+        <NavLink to="/checkout">Pagamento</NavLink>
       </div>
     )
 
