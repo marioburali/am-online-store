@@ -16,6 +16,7 @@ export type SearchBarProps = {
 export type ProductsListProps = {
   isSearched: boolean,
   products: Product[],
+  showAddToCart: boolean,
 };
 
 export type AddToCartProps = {
