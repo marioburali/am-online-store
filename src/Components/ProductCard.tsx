@@ -21,7 +21,7 @@ function ProductCard({ id,
   return (
     <div id={ id }>
       <h1>{title}</h1>
-      <img src={ thumbnail } alt={ thumbnail } />
+      <img className="cardImg" src={ thumbnail } alt={ thumbnail } />
       <h2>
         R$
         {' '}

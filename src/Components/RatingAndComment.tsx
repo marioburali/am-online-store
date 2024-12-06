@@ -64,6 +64,7 @@ export default function RatingAndComment({ productId }: { productId: string }) {
             onChange={ handleEmailChange }
             placeholder="Email (obrigatório)"
             required
+            className="email"
           />
         </label>
 
@@ -120,20 +121,28 @@ export default function RatingAndComment({ productId }: { productId: string }) {
         {reviews.length > 0 ? (
           reviews.map((review, index) => (
             <div key={ index } className="mt-4 border-b pb-2">
-              <p>
-                Email:
-                {review.email}
-              </p>
+              <div className="flex gap-1">
+                <h3>
+                  {review.email}
+                </h3>
+                {[1, 2, 3, 4, 5].map((index) => (
+                  <StarIcon
+                    key={ index }
+                    className={ `h-6 w-6 ${
+                      index <= review.rating ? 'text-yellow-400' : 'text-gray-300'
+                    } transition-colors` }
+                    style={ {
+                      fill: index <= review.rating ? '#fbbf24' : '#d1d5db',
+                    } }
+                  />
+                ))}
+              </div>
               <p>
                 Comentário:
+                {' '}
                 {review.text}
               </p>
-              <p>
-                Nota:
-                {review.rating}
-                {' '}
-                estrelas
-              </p>
+
             </div>
           ))
         ) : (

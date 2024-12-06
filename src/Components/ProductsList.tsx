@@ -12,8 +12,10 @@ function ProductsList({ products, isSearched, showAddToCart = true }: ProductsLi
         state={ { product } }
         key={ product.id }
       >
-        <ProductCard { ...product } isDetailedView={ false } />
-        {showAddToCart && (<AddToCart product={ product } />)}
+        <div className='card hover:bg-gray-100 hover:shadow-lg transition-all duration-300'>
+          <ProductCard { ...product } isDetailedView={ false } />
+          {showAddToCart && (<AddToCart product={ product } />)}
+        </div>
       </NavLink>)))
     : (isSearched && <h2>Nenhum produto foi encontrado</h2>);
 }

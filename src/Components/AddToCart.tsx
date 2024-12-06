@@ -30,6 +30,7 @@ function AddToCart({ product }: AddToCartProps) {
     <Button
       variant="gradient"
       onClick={ handleClick }
+      className="buttonCart"
     >
       Adiciona ao carrinho
     </Button>

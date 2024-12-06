@@ -5,6 +5,7 @@ import SearchBar from '../Components/SearchBar';
 import { Product } from '../Types';
 import ProductsList from '../Components/ProductsList';
 import CartIcon from '../Components/CartIcon/CartIcon';
+import logo from '../AM.png';
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -14,6 +15,7 @@ function Home() {
     <div className="flex flex-col min-h-screen">
       <header className="bg-gradient-to-r from-[#0B62FF] to-[#2D8CFF] text-white shadow-md p-4 sticky top-0 z-20">
         <div className="container mx-auto flex justify-between items-center">
+          <img className="logo"src={logo} alt="logo" />
           <SearchBar setResults={ setProducts } setIsSearched={ setIsSearched } />
           <div className="flex items-center space-x-4">
             <NavLink
@@ -21,7 +23,7 @@ function Home() {
               to="/cart"
               className="hover:text-gray-200 transition-colors duration-300"
             >
-            <CartIcon />
+              <CartIcon />
             </NavLink>
           </div>
         </div>
@@ -33,7 +35,7 @@ function Home() {
             <Categories setResults={ setProducts } setIsSearched={ setIsSearched } />
           </div>
         </aside>
-        <main className="flex-1 overflow-y-auto p-4">
+        <main className="overflow-y-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <ProductsList isSearched={ isSearched } products={ products } />
         </main>
       </div>
