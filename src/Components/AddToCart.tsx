@@ -6,8 +6,11 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     const { id } = product;
-    const getCart = localStorage.getItem('cart');
-    const cart = getCart ? JSON.parse(getCart) : {};
+    const getCartItems = localStorage.getItem('cart');
+    const cart = getCartItems ? JSON.parse(getCartItems) as CartType : {};
+
+    const getCartLength = localStorage.getItem('cartsize');
+    const cartSize = getCartLength ? JSON.parse(getCartLength) : 0;
 
     if (cart[id]) {
       cart[id].quantity += 1;
@@ -15,6 +18,8 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
       cart[id] = { ...product, quantity: 1 };
     }
 
+    localStorage.setItem('cartsize', JSON.stringify(cartSize + 1));
+    setCartLength((prevState) => prevState + 1);
     localStorage.setItem('cart', JSON.stringify(cart));
   };
 
