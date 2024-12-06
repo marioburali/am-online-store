@@ -38,7 +38,7 @@ function PaymentForm() {
         <label htmlFor="fullname">
           Nome Completo
           <input
-            data-testid="checkout-fullname"
+
             type="text"
             id="fullname"
             name="fullname"
@@ -49,7 +49,7 @@ function PaymentForm() {
         <label htmlFor="email">
           E-mail
           <input
-            data-testid="checkout-email"
+
             type="text"
             id="email"
             name="email"
@@ -61,7 +61,7 @@ function PaymentForm() {
         <label htmlFor="cpf">
           CPF
           <input
-            data-testid="checkout-cpf"
+
             type="text"
             id="cpf"
             name="cpf"
@@ -73,7 +73,7 @@ function PaymentForm() {
         <label htmlFor="phone">
           Telefone
           <input
-            data-testid="checkout-phone"
+
             type="text"
             id="phone"
             name="phone"
@@ -85,7 +85,7 @@ function PaymentForm() {
         <label htmlFor="cep">
           CEP
           <input
-            data-testid="checkout-cep"
+
             type="text"
             id="cep"
             name="cep"
@@ -97,7 +97,7 @@ function PaymentForm() {
         <label htmlFor="address">
           Endereço
           <input
-            data-testid="checkout-address"
+
             type="text"
             id="address"
             name="address"
@@ -110,7 +110,7 @@ function PaymentForm() {
             htmlFor="ticket"
           >
             <input
-              data-testid="ticket-payment"
+
               type="radio"
               name="payment"
               value="boleto"
@@ -123,7 +123,7 @@ function PaymentForm() {
             htmlFor="visa"
           >
             <input
-              data-testid="visa-payment"
+
               type="radio"
               name="payment"
               value="visa"
@@ -136,7 +136,7 @@ function PaymentForm() {
             htmlFor="mastercard"
           >
             <input
-              data-testid="master-payment"
+
               type="radio"
               name="payment"
               value="mastercard"
@@ -149,7 +149,7 @@ function PaymentForm() {
             htmlFor="elo"
           >
             <input
-              data-testid="elo-payment"
+
               type="radio"
               name="payment"
               value="elo"
@@ -159,9 +159,9 @@ function PaymentForm() {
             Elo
           </label>
         </li>
-        <button type="submit" data-testid="checkout-btn">Confirmar</button>
+        <button type="submit">Confirmar</button>
       </form>
-      {!isValidForm && (<p data-testid="error-msg">Campos inválidos</p>)}
+      {!isValidForm && (<p>Campos inválidos</p>)}
     </section>
   );
 }

@@ -12,11 +12,10 @@ function Product() {
       <div>
         <CartIcon />
         <ProductCard
-          data-testid="product"
           { ...product }
         />
-        <AddToCart datatestid="product-detail-add-to-cart" product={ product } />
-        <NavLink to="/cart" data-testid="shopping-cart-button">Carrinho</NavLink>
+        <AddToCart product={ product } />
+        <NavLink to="/cart">Carrinho</NavLink>
       </div>
     </main>
   );

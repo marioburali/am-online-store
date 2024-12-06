@@ -57,14 +57,14 @@ export default function RatingAndComment({ productId }: { productId: string }) {
     <div>
       <h1>Rating and Comment</h1>
       <form noValidate onSubmit={ handleSubmit }>
-        {error && <p data-testid="error-msg">{error}</p>}
+        {error && <p>{error}</p>}
 
         <label htmlFor="email-id">
           <input
             type="email"
             name="email"
             id="email-id"
-            data-testid="product-detail-email"
+
             value={ email }
             onChange={ handleEmailChange }
             placeholder="Email"
@@ -101,11 +101,11 @@ export default function RatingAndComment({ productId }: { productId: string }) {
             value={ text }
             onChange={ handleTextChange }
             placeholder="Deixe seu comentário"
-            data-testid="product-detail-evaluation"
+
           />
         </label>
 
-        <button type="submit" data-testid="submit-review-btn">Enviar</button>
+        <button type="submit">Enviar</button>
       </form>
 
       <div>

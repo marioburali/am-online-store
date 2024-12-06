@@ -10,7 +10,7 @@ function CartIcon() {
       <RiShoppingCartLine className="cart" />
       <FaCircle className="circle" />
       <p
-        data-testid="shopping-cart-size"
+
         className="cart-quantity"
       >
         {cartLength}

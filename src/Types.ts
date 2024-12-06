@@ -20,7 +20,6 @@ export type ProductsListProps = {
 };
 
 export type AddToCartProps = {
-  datatestid: string,
   product: Product,
 };
 

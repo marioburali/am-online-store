@@ -13,7 +13,7 @@ function Home() {
   return (
     <main>
       <CartIcon />
-      <NavLink data-testid="shopping-cart-button" to="/cart">Carrinho</NavLink>
+      <NavLink to="/cart">Carrinho</NavLink>
       <SearchBar setResults={ setProducts } setIsSearched={ setIsSearched } />
       <aside>
         <Categories setResults={ setProducts } setIsSearched={ setIsSearched } />

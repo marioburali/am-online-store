@@ -8,13 +8,12 @@ function ProductsList({ products, isSearched, showAddToCart = true }: ProductsLi
   return products.length > 0
     ? (products.map((product) => (
       <NavLink
-        data-testid="product-detail-link"
         to={ `/product/${createURLSlug(product.title)}` }
         state={ { product } }
         key={ product.id }
       >
         <ProductCard { ...product } isDetailedView={ false } />
-        {showAddToCart && (<AddToCart datatestid="product-add-to-cart" product={ product } />)}
+        {showAddToCart && (<AddToCart product={ product } />)}
       </NavLink>)))
     : (isSearched && <h2>Nenhum produto foi encontrado</h2>);
 }

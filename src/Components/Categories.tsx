@@ -35,7 +35,7 @@ export default function Categories({ setResults, setIsSearched }: CategoriesProp
                 onClick={ () => handleCategory(category.id) }
               />
               <label
-                data-testid="category"
+
                 htmlFor={ `categoria-${category.id}` }
               >
                 {category.name}

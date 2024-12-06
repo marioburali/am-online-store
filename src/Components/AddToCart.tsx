@@ -1,8 +1,10 @@
 import React from 'react';
-import { AddToCartProps } from '../Types';
+import { AddToCartProps, CartType } from '../Types';
 import { CustomButton } from './custom-button';
+import { useCartContext } from '../context/CartContext';
 
-function AddToCart({ datatestid, product }: AddToCartProps) {
+function AddToCart({ product }: AddToCartProps) {
+  const { setCartLength } = useCartContext();
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     const { id } = product;
@@ -27,7 +29,6 @@ function AddToCart({ datatestid, product }: AddToCartProps) {
     <CustomButton
       variant="destructive"
       onClick={ handleClick }
-      data-testid={ datatestid }
     >
       Adiciona ao carrinho
     </CustomButton>

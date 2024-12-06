@@ -14,7 +14,7 @@ function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
 
   return (
     <div>
-      <h2 data-testid="home-initial-message">
+      <h2>
         Digite algum termo de pesquisa ou escolha uma categoria.
       </h2>
       <form onSubmit={ onSubmit }>
@@ -23,12 +23,12 @@ function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
           <input
             type="text"
             id="query-input"
-            data-testid="query-input"
+
             value={ query }
             onChange={ ({ target }) => setQuery(target.value) }
           />
         </label>
-        <button type="submit" data-testid="query-button">Pesquisar</button>
+        <button type="submit">Pesquisar</button>
       </form>
     </div>
   );
