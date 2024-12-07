@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getProductsFromQuery } from '../services/api';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -7,9 +8,11 @@ import { useProductContext } from '../context/ProductContext';
 function SearchBar() {
   const { setProducts, setIsSearched } = useProductContext();
   const [query, setQuery] = useState('');
+  const navigate = useNavigate();
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (window.location.pathname !== '/') navigate('/');
     const { results } = await getProductsFromQuery(query);
     setProducts(results);
     setIsSearched(true);
