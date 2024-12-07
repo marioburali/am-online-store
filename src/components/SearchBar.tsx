@@ -6,14 +6,16 @@ import { Input } from './ui/input';
 import { useProductContext } from '../context/ProductContext';
 
 function SearchBar() {
-  const { setProducts, setIsSearched } = useProductContext();
+  const { setProducts, setIsSearched, setIsLoading } = useProductContext();
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (window.location.pathname !== '/') navigate('/');
+    setIsLoading(true);
     const { results } = await getProductsFromQuery(query);
+    setIsLoading(false);
     setProducts(results);
     setIsSearched(true);
   };
