@@ -34,6 +34,7 @@ export type Product = {
   thumbnail: string;
   order_backend: number;
   price: number;
+  shipping: Shipping;
   original_price: number | null;
   available_quantity: number;
   official_store_id: number | null;
@@ -50,6 +51,21 @@ export type Product = {
   official_store_name?: string;
   quantity: number;
 };
+
+export type Shipping = {
+  store_pick_up: boolean;
+  free_shipping: boolean;
+  logistic_type: null;
+  mode: Mode;
+  tags: any[];
+  benefits: null;
+  promise: null;
+  shipping_score: number;
+};
+
+export enum Mode {
+  NotSpecified = 'not_specified',
+}
 
 export type Comment = {
   email: string;

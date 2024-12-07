@@ -1,4 +1,15 @@
-import { Product } from '../Types';
+import { Product, Shipping, Mode } from '../Types';
+
+const initialShipping: Shipping = {
+  store_pick_up: false,
+  free_shipping: false,
+  logistic_type: null,
+  mode: Mode.NotSpecified,
+  tags: [],
+  benefits: null,
+  promise: null,
+  shipping_score: 0,
+};
 
 export const initialProduct: Product = {
   id: 'notfound',
@@ -20,6 +31,7 @@ export const initialProduct: Product = {
   use_thumbnail_id: false,
   accepts_mercadopago: false,
   stop_time: new Date(),
+  shipping: initialShipping,
   installments: null,
   winner_item_id: null,
   catalog_listing: false,

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import AddToCart from '../components/AddToCart';
 import { useProductContext } from '../context/ProductContext';
+import DetailedProduct from '../components/DetailedProduct';
 
 function Product() {
   const { product, saveProduct } = useProductContext();
@@ -20,7 +21,7 @@ function Product() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1 container mx-auto p-4">
         <div className="bg-white rounded-lg shadow-md p-6">
-          <ProductCard product={ product } />
+          <DetailedProduct product={ product } />
           <AddToCart product={ product } />
         </div>
       </main>
