@@ -13,7 +13,7 @@ function ProductCard({ product, isDetailedView = true }: ProductCardProps) {
   }, [id]);
 
   return (
-    <div id={ id }>
+    <div id={ id } className="singleCard">
       <img className="cardImg" src={ thumbnail } alt={ thumbnail } />
       <h3 className="text-left line-clamp-2 overflow-hidden text-ellipsis">
         {title}
