@@ -37,7 +37,7 @@ function Cart() {
               </div>
             ))}
           </div>
-          <div className="justify-between">
+          <div className="flex justify-between">
             <NavLink to="/">
               <Button variant="secondary">Conferir Mais Produtos</Button>
             </NavLink>
