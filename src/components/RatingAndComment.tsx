@@ -125,14 +125,14 @@ export default function RatingAndComment({ productId }: { productId: string }) {
                 <h3>
                   {review.email}
                 </h3>
-                {[1, 2, 3, 4, 5].map((index) => (
+                {[1, 2, 3, 4, 5].map((star) => (
                   <StarIcon
-                    key={ index }
+                    key={ star }
                     className={ `h-6 w-6 ${
-                      index <= review.rating ? 'text-yellow-400' : 'text-gray-300'
+                      star <= review.rating ? 'text-yellow-400' : 'text-gray-300'
                     } transition-colors` }
                     style={ {
-                      fill: index <= review.rating ? '#fbbf24' : '#d1d5db',
+                      fill: star <= review.rating ? '#fbbf24' : '#d1d5db',
                     } }
                   />
                 ))}

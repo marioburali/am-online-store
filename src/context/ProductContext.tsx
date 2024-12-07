@@ -5,15 +5,20 @@ import { Product } from '../Types';
 interface ProductContextType {
   products: Product[];
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+  isSearched: boolean;
+  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
 export function ProductProvider({ children }: { children: React.ReactNode }) {
   const [products, setProducts] = useState<Product[]>([]);
+  const [isSearched, setIsSearched] = useState(false);
+
+  const value = { products, setProducts, isSearched, setIsSearched };
 
   return (
-    <ProductContext.Provider value={ { products, setProducts } }>
+    <ProductContext.Provider value={ value }>
       {children}
     </ProductContext.Provider>
   );

@@ -3,16 +3,7 @@ export type Category = {
   name: string;
 };
 
-export type CategoriesProps = {
-  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-export type SearchBarProps = {
-  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
 export type ProductsListProps = {
-  isSearched: boolean,
   showAddToCart?: boolean,
 };
 

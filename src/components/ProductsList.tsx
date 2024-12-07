@@ -5,8 +5,8 @@ import ProductCard from './ProductCard';
 import AddToCart from './AddToCart';
 import { useProductContext } from '../context/ProductContext';
 
-function ProductsList({ isSearched, showAddToCart = true }: ProductsListProps) {
-  const { products } = useProductContext();
+function ProductsList({ showAddToCart = true }: ProductsListProps) {
+  const { products, isSearched } = useProductContext();
   return products.length > 0
     ? (products.map((product) => (
       <NavLink

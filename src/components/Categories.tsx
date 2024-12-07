@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories, getProductsFromCategory } from '../services/api';
-import { Category, CategoriesProps } from '../Types';
+import { Category } from '../Types';
 import { useProductContext } from '../context/ProductContext';
 
-export default function Categories({ setIsSearched }: CategoriesProps) {
-  const { setProducts } = useProductContext();
+export default function Categories() {
+  const { setProducts, setIsSearched } = useProductContext();
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {

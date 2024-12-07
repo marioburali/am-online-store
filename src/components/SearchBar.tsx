@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { SearchBarProps } from '../Types';
 import { getProductsFromQuery } from '../services/api';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useProductContext } from '../context/ProductContext';
 
-function SearchBar({ setIsSearched }: SearchBarProps) {
-  const { setProducts } = useProductContext();
+function SearchBar() {
+  const { setProducts, setIsSearched } = useProductContext();
   const [query, setQuery] = useState('');
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
