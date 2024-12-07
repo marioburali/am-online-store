@@ -1,7 +1,11 @@
+import { useProductContext } from '../context/ProductContext';
 import Categories from '../components/Categories';
 import ProductsList from '../components/ProductsList';
+import Loading from '../components/Loading';
 
 function Home() {
+  const { isLoading } = useProductContext();
+
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-1">
@@ -12,7 +16,7 @@ function Home() {
           </div>
         </aside>
         <main className="overflow-y-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <ProductsList />
+          {isLoading ? <Loading /> : <ProductsList />}
         </main>
       </div>
     </div>

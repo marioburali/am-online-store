@@ -1,22 +1,14 @@
 // CartContext.tsx
 import React, { createContext, useContext, useState } from 'react';
-import { Product } from '../Types';
+import { Product, ProductContextType } from '../Types';
 import { initialProduct } from '../helpers/initialProduct';
-
-interface ProductContextType {
-  product: Product;
-  saveProduct: (item: Product) => void;
-  products: Product[];
-  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-  isSearched: boolean;
-  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
 export function ProductProvider({ children }: { children: React.ReactNode }) {
   const [product, setProduct] = useState<Product>(initialProduct);
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [isSearched, setIsSearched] = useState(false);
 
   const saveProduct = (item: Product) => {
@@ -24,7 +16,16 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem('product', JSON.stringify(item));
   };
 
-  const value = { product, saveProduct, setProduct, products, setProducts, isSearched, setIsSearched };
+  const value = {
+    product,
+    saveProduct,
+    setProduct,
+    products,
+    setProducts,
+    isSearched,
+    setIsSearched,
+    isLoading,
+    setIsLoading };
 
   return (
     <ProductContext.Provider value={ value }>

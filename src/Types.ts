@@ -59,3 +59,22 @@ export type Comment = {
 export type CommentsList = {
   [productId: string]: Comment[];
 };
+
+export type ProductContextType = {
+  product: Product;
+  saveProduct: (item: Product) => void;
+  products: Product[];
+  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+  isSearched: boolean;
+  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type CartContextType = {
+  cart: CartType;
+  setCart: React.Dispatch<React.SetStateAction<CartType>>;
+  cartLength: number;
+  setCartLength: React.Dispatch<React.SetStateAction<number>>;
+  getCartSize: () => number;
+};

@@ -1,14 +1,6 @@
 // CartContext.tsx
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { CartType } from '../Types';
-
-interface CartContextType {
-  cart: CartType;
-  setCart: React.Dispatch<React.SetStateAction<CartType>>;
-  cartLength: number;
-  setCartLength: React.Dispatch<React.SetStateAction<number>>;
-  getCartSize: () => number;
-}
+import { CartContextType, CartType } from '../Types';
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
