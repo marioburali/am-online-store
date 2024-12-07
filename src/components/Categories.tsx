@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories, getProductsFromCategory } from '../services/api';
-import { Category, CategoriesProps } from '../Types';
+import { Category } from '../Types';
+import { useProductContext } from '../context/ProductContext';
 
-export default function Categories({ setResults, setIsSearched }: CategoriesProps) {
+export default function Categories() {
+  const { setProducts, setIsSearched, setIsLoading } = useProductContext();
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -15,14 +17,15 @@ export default function Categories({ setResults, setIsSearched }: CategoriesProp
   }, []);
 
   const handleCategory = async (categoryId: string) => {
-    const data = await getProductsFromCategory(categoryId);
-    setResults(data.results);
+    setIsLoading(true);
+    const { results } = await getProductsFromCategory(categoryId);
+    setProducts(results);
     setIsSearched(false);
+    setIsLoading(false);
   };
 
   return (
     <div>
-      <h3>Categorias</h3>
       <ul>
         {categories.map((category) => {
           return (
@@ -34,10 +37,7 @@ export default function Categories({ setResults, setIsSearched }: CategoriesProp
                 value={ category.name }
                 onClick={ () => handleCategory(category.id) }
               />
-              <label
-                data-testid="category"
-                htmlFor={ `categoria-${category.id}` }
-              >
+              <label htmlFor={ `categoria-${category.id}` }>
                 {category.name}
               </label>
             </li>

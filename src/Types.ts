@@ -3,28 +3,21 @@ export type Category = {
   name: string;
 };
 
-export type CategoriesProps = {
-  setResults: React.Dispatch<React.SetStateAction<Product[]>>;
-  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-export type SearchBarProps = {
-  setResults: React.Dispatch<React.SetStateAction<Product[]>>;
-  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
 export type ProductsListProps = {
-  isSearched: boolean,
-  products: Product[],
+  showAddToCart?: boolean;
 };
 
 export type AddToCartProps = {
-  datatestid: string,
-  product: Product,
+  product: Product;
+};
+
+export type ProductCardProps = {
+  product: Product;
+  isDetailedView?: boolean;
 };
 
 export type CartType = {
-  [id: string]: Product
+  [id: string]: Product;
 };
 
 export type Product = {
@@ -41,13 +34,13 @@ export type Product = {
   thumbnail: string;
   order_backend: number;
   price: number;
+  shipping: Shipping;
   original_price: number | null;
   available_quantity: number;
   official_store_id: number | null;
   use_thumbnail_id: boolean;
   accepts_mercadopago: boolean;
   stop_time: Date;
-  location: Location;
   installments: null;
   winner_item_id: null;
   catalog_listing: boolean;
@@ -59,6 +52,21 @@ export type Product = {
   quantity: number;
 };
 
+export type Shipping = {
+  store_pick_up: boolean;
+  free_shipping: boolean;
+  logistic_type: null;
+  mode: Mode;
+  tags: any[];
+  benefits: null;
+  promise: null;
+  shipping_score: number;
+};
+
+export enum Mode {
+  NotSpecified = 'not_specified',
+}
+
 export type Comment = {
   email: string;
   text: string;
@@ -66,4 +74,23 @@ export type Comment = {
 };
 export type CommentsList = {
   [productId: string]: Comment[];
+};
+
+export type ProductContextType = {
+  product: Product;
+  saveProduct: (item: Product) => void;
+  products: Product[];
+  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+  isSearched: boolean;
+  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type CartContextType = {
+  cart: CartType;
+  setCart: React.Dispatch<React.SetStateAction<CartType>>;
+  cartLength: number;
+  setCartLength: React.Dispatch<React.SetStateAction<number>>;
+  getCartSize: () => number;
 };

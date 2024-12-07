@@ -1,23 +1,32 @@
 // CartContext.tsx
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
-interface CartContextType {
-  cartLength: number;
-  setCartLength: React.Dispatch<React.SetStateAction<number>>;
-}
+import { CartContextType, CartType } from '../Types';
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
+  const [cart, setCart] = useState<CartType>({});
   const [cartLength, setCartLength] = useState(0);
+
+  function getCart() {
+    const getCartItems = localStorage.getItem('cart');
+    return getCartItems ? JSON.parse(getCartItems) as CartType : {};
+  }
+
+  function getCartSize() {
+    const getCartLength = localStorage.getItem('cartsize');
+    return getCartLength ? JSON.parse(getCartLength) : 0;
+  }
+
   useEffect(() => {
-    const getCartSize = localStorage.getItem('cartsize');
-    const cartSize = getCartSize ? JSON.parse(getCartSize) : 0;
-    setCartLength(cartSize);
+    setCart(getCart());
+    setCartLength(getCartSize());
   }, []);
 
+  const value = { cartLength, setCartLength, cart, setCart, getCartSize };
+
   return (
-    <CartContext.Provider value={ { cartLength, setCartLength } }>
+    <CartContext.Provider value={ value }>
       {children}
     </CartContext.Provider>
   );
