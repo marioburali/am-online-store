@@ -125,12 +125,15 @@ textarea {
 }
 
 .buttonCart {
-  margin: 10px 0px;
+  margin: 10px 0px 0px 0px;
+  border-radius: 0px 0px 20px 20px;
+  background-color: rgb(255, 255, 255); 
+  padding: 25px;
 }
 
 .card {
   margin: 10px;
-  padding: 20px;
+  padding: 0px;
   border: 1px solid #ccc;
   border-radius: 20px;
   max-width: 350px;
@@ -138,12 +141,22 @@ textarea {
   min-width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+
+.singleCard {
+  margin: 20px;
+  padding: 0px;
 }
 
 .logo {
   width: 100px;
   padding: 10px;
   margin: -40px;
+}
+
+label.font-bold {
+  font-weight: bold; 
+  color: #0B62FF;
 }

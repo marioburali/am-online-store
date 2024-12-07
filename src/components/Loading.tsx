@@ -4,7 +4,7 @@ import { ClipLoader } from 'react-spinners';
 function Loading() {
   return (
     <div className="absolute inset-0 flex justify-center items-center">
-      <ClipLoader />
+      <ClipLoader color="#0B62FF" />
     </div>
   );
 }

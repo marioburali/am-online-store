@@ -15,9 +15,9 @@ function AddToCart({ product }: AddToCartProps) {
     <Button
       variant="gradient"
       onClick={ handleClick }
-      className="buttonCart"
+      className="buttonCart w-full"
     >
-      Adicionar ao carrinho
+      <h3>Adicionar ao carrinho</h3>
     </Button>
   );
 }
