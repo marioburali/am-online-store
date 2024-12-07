@@ -1,26 +1,13 @@
-import { useLocation, NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Product as ProductType } from '../Types';
 import ProductCard from '../components/ProductCard';
 import AddToCart from '../components/AddToCart';
-import CartIcon from '../components/CartIcon/CartIcon';
-import logo from '../AM.png';
 
 function Product() {
   const location = useLocation();
   const product = location.state.product as ProductType;
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-gradient-to-r from-[#0B62FF] to-[#2D8CFF] text-white shadow-md p-4 sticky top-0 z-20">
-        <div className="container mx-auto flex justify-between items-center">
-          <img className="logo" src={ logo } alt="logo" />
-          <NavLink
-            to="/cart"
-            className="hover:text-gray-200 transition-colors duration-300"
-          >
-            <CartIcon />
-          </NavLink>
-        </div>
-      </header>
       <main className="flex-1 container mx-auto p-4">
         <div className="bg-white rounded-lg shadow-md p-6">
           <ProductCard { ...product } />

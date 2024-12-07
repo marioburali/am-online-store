@@ -1,31 +1,9 @@
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import Categories from '../components/Categories';
-import SearchBar from '../components/SearchBar';
 import ProductsList from '../components/ProductsList';
-import CartIcon from '../components/CartIcon/CartIcon';
-import logo from '../AM.png';
 
 function Home() {
-  const navigate = useNavigate();
-
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-gradient-to-r from-[#0B62FF] to-[#2D8CFF] text-white shadow-md p-4 sticky top-0 z-20">
-        <div className="container mx-auto flex justify-between items-center">
-          <img className="logo cursor-pointer" src={ logo } alt="logo" onClick={ () => navigate('/') } />
-          <SearchBar />
-          <div className="flex items-center space-x-4">
-            <NavLink
-              data-testid="shopping-cart-button"
-              to="/cart"
-              className="hover:text-gray-200 transition-colors duration-300"
-            >
-              <CartIcon />
-            </NavLink>
-          </div>
-        </div>
-      </header>
       <div className="flex flex-1">
         <aside className="w-64 bg-gray-100 overflow-y-auto">
           <div className="p-4">
