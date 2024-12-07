@@ -7,7 +7,7 @@ interface CartContextType {
   setCart: React.Dispatch<React.SetStateAction<CartType>>;
   cartLength: number;
   setCartLength: React.Dispatch<React.SetStateAction<number>>;
-  getCart: () => CartType;
+  getCartSize: () => number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -31,8 +31,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartLength(getCartSize());
   }, []);
 
+  const value = { cartLength, setCartLength, cart, setCart, getCartSize };
+
   return (
-    <CartContext.Provider value={ { cartLength, setCartLength, cart, setCart, getCart } }>
+    <CartContext.Provider value={ value }>
       {children}
     </CartContext.Provider>
   );
