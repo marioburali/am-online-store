@@ -26,7 +26,7 @@ function SearchBar() {
         <div className="flex w-full max-w-sm items-center space-x-2">
           <label htmlFor="query-input">
             <Input
-              className="text-black"
+              className="text-black w-96"
               type="text"
               id="query-input"
               data-testid="query-input"

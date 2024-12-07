@@ -6,15 +6,15 @@ import { useCartContext } from '../context/CartContext';
 import { formatPrice } from '../helpers/formatPrice';
 
 export default function CartSummary() {
-  const { cart, cartLength } = useCartContext();
-  const [total, setTotal] = useState(0);
+  const { cart, cartLength, totalPrice } = useCartContext();
+  // const [total, setTotal] = useState(0);
 
-  useEffect(() => {
-    const cartTotal = Object.values(cart).reduce((acc, item) => {
-      return acc + item.price * item.quantity;
-    }, 0);
-    setTotal(cartTotal);
-  }, []);
+  // useEffect(() => {
+  //   const cartTotal = Object.values(cart).reduce((acc, item) => {
+  //     return acc + item.price * item.quantity;
+  //   }, 0);
+  //   setTotal(cartTotal);
+  // }, []);
 
   return (
     <Card className="w-full max-w-md">
@@ -52,7 +52,7 @@ export default function CartSummary() {
           <p>
             R$
             {' '}
-            {formatPrice(total)}
+            {formatPrice(totalPrice)}
           </p>
         </div>
       </CardContent>
