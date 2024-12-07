@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Categories from '../components/Categories';
 import SearchBar from '../components/SearchBar';
@@ -11,11 +11,13 @@ function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isSearched, setIsSearched] = useState(false);
 
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="bg-gradient-to-r from-[#0B62FF] to-[#2D8CFF] text-white shadow-md p-4 sticky top-0 z-20">
         <div className="container mx-auto flex justify-between items-center">
-          <img className="logo" src={ logo } alt="logo" />
+          <img className="logo cursor-pointer" src={ logo } alt="logo" onClick={ () => navigate('/') } />
           <SearchBar setResults={ setProducts } setIsSearched={ setIsSearched } />
           <div className="flex items-center space-x-4">
             <NavLink

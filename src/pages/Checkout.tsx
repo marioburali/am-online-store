@@ -1,15 +1,16 @@
 import PaymentForm from '../components/PaymentForm';
-import ProductsList from '../components/ProductsList';
-import useCart from '../hooks/useCart';
+import CartSummary from '../components/CartSummary';
 
-function Checkout() {
-  const { cart } = useCart();
+export default function Checkout() {
   return (
-    <main>
-      <ProductsList isSearched products={ Object.values(cart) } showAddToCart={ false } />
-      <PaymentForm />
-    </main>
+    <div className="container mx-auto p-4 min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-4xl">
+        <h1 className="text-2xl font-bold mb-6 text-center">Checkout</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <CartSummary />
+          <PaymentForm />
+        </div>
+      </div>
+    </div>
   );
 }
-
-export default Checkout;

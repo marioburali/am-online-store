@@ -32,7 +32,7 @@ function AddToCart({ product }: AddToCartProps) {
       onClick={ handleClick }
       className="buttonCart"
     >
-      Adiciona ao carrinho
+      Adicionar ao carrinho
     </Button>
   );
 }

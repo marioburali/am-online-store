@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Comment, Product } from '../Types';
 import RatingAndComment from './RatingAndComment';
+import { formatPrice } from '@/helpers/formatPrice';
 
 interface ProductCardProps extends Product {
   isDetailedView?: boolean;
@@ -20,12 +21,14 @@ function ProductCard({ id,
 
   return (
     <div id={ id }>
-      <h1>{title}</h1>
       <img className="cardImg" src={ thumbnail } alt={ thumbnail } />
-      <h2>
+      <h3 className="text-left line-clamp-2 overflow-hidden text-ellipsis">
+        {title}
+      </h3>
+      <h2 className="text-center font-bold">
         R$
         {' '}
-        {price}
+        {formatPrice(price)}
       </h2>
 
       {isDetailedView && <RatingAndComment productId={ id } />}

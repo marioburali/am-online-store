@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { RadioGroup, RadioGroupItem } from './ui/radio-group';
+import { Button } from './ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 function PaymentForm() {
   const INITIAL_STATE = {
@@ -26,135 +31,106 @@ function PaymentForm() {
     navigate('/');
   };
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>
-  | React.ChangeEvent<HTMLSelectElement>) {
-    setForm((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-  }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
+  };
 
   return (
-    <section>
-      <form onSubmit={ onSubmit }>
-        <label htmlFor="fullname">
-          Nome Completo
-          <input
-            type="text"
-            id="fullname"
-            name="fullname"
-            value={ form.fullname }
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="email">
-          E-mail
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={ form.email }
-            onChange={ handleChange }
-          />
-        </label>
-
-        <label htmlFor="cpf">
-          CPF
-          <input
-            type="text"
-            id="cpf"
-            name="cpf"
-            value={ form.cpf }
-            onChange={ handleChange }
-          />
-        </label>
-
-        <label htmlFor="phone">
-          Telefone
-          <input
-            type="text"
-            id="phone"
-            name="phone"
-            value={ form.phone }
-            onChange={ handleChange }
-          />
-        </label>
-
-        <label htmlFor="cep">
-          CEP
-          <input
-            type="text"
-            id="cep"
-            name="cep"
-            value={ form.cep }
-            onChange={ handleChange }
-          />
-        </label>
-
-        <label htmlFor="address">
-          Endereço
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={ form.address }
-            onChange={ handleChange }
-          />
-        </label>
-        <li>
-          <label
-            htmlFor="ticket"
-          >
-            <input
-              type="radio"
-              name="payment"
-              value="boleto"
-              id="ticket"
+    <Card className="w-full max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle>Formulário de Pagamento</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={ onSubmit } className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="fullname">Nome Completo</Label>
+            <Input
+              type="text"
+              id="fullname"
+              name="fullname"
+              value={ form.fullname }
               onChange={ handleChange }
             />
-            Boleto
-          </label>
-          <label
-            htmlFor="visa"
-          >
-            <input
-              type="radio"
-              name="payment"
-              value="visa"
-              id="visa"
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="email">E-mail</Label>
+            <Input
+              type="email"
+              id="email"
+              name="email"
+              value={ form.email }
               onChange={ handleChange }
             />
-            Visa
-          </label>
-          <label
-            htmlFor="mastercard"
-          >
-            <input
-              type="radio"
-              name="payment"
-              value="mastercard"
-              id="mastercard"
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="cpf">CPF</Label>
+            <Input
+              type="text"
+              id="cpf"
+              name="cpf"
+              value={ form.cpf }
               onChange={ handleChange }
             />
-            MasterCard
-          </label>
-          <label
-            htmlFor="elo"
-          >
-            <input
-              type="radio"
-              name="payment"
-              value="elo"
-              id="elo"
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="phone">Telefone</Label>
+            <Input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={ form.phone }
               onChange={ handleChange }
             />
-            Elo
-          </label>
-        </li>
-        <button type="submit">Confirmar</button>
-      </form>
-      {!isValidForm && (<p>Campos inválidos</p>)}
-    </section>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="cep">CEP</Label>
+            <Input
+              type="text"
+              id="cep"
+              name="cep"
+              value={ form.cep }
+              onChange={ handleChange }
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="address">Endereço</Label>
+            <Input
+              type="text"
+              id="address"
+              name="address"
+              value={ form.address }
+              onChange={ handleChange }
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label>Método de Pagamento</Label>
+            <RadioGroup name="payment" onValueChange={ (value) => setForm((prev) => ({ ...prev, payment: value })) }>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="boleto" id="ticket" />
+                <Label htmlFor="ticket">Boleto Bancário</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="cartao" id="cartao" />
+                <Label htmlFor="cartao">Cartão de Crédito</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="pix" id="pix" />
+                <Label htmlFor="pix">PIX</Label>
+              </div>
+            </RadioGroup>
+          </div>
+
+          <Button variant="gradient" type="submit" className="w-full">Confirmar</Button>
+        </form>
+        {!isValidForm && <p className="text-red-500 mt-2">Campos inválidos</p>}
+      </CardContent>
+    </Card>
   );
 }
 
