@@ -6,15 +6,17 @@ import AddToCart from './AddToCart';
 import { useProductContext } from '../context/ProductContext';
 
 function ProductsList({ showAddToCart = true }: ProductsListProps) {
-  const { products, isSearched } = useProductContext();
+  const { products, isSearched, saveProduct } = useProductContext();
   return products.length > 0
     ? (products.map((product) => (
       <NavLink
         to={ `/product/${createURLSlug(product.title)}` }
-        state={ { product } }
         key={ product.id }
       >
-        <div className="card hover:bg-gray-100 hover:shadow-lg transition-all duration-300">
+        <div
+          onClick={ () => saveProduct(product) }
+          className="card hover:bg-gray-100 hover:shadow-lg transition-all duration-300"
+        >
           <ProductCard product={ product } isDetailedView={ false } />
           {showAddToCart && (<AddToCart product={ product } />)}
         </div>

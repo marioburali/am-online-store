@@ -40,7 +40,6 @@ export type Product = {
   use_thumbnail_id: boolean;
   accepts_mercadopago: boolean;
   stop_time: Date;
-  location: Location;
   installments: null;
   winner_item_id: null;
   catalog_listing: boolean;
