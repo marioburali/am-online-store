@@ -6,7 +6,7 @@ import { useProductContext } from '../context/ProductContext';
 export default function Categories() {
   const { setProducts, setIsSearched, setIsLoading } = useProductContext();
   const [categories, setCategories] = useState<Category[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -22,7 +22,7 @@ export default function Categories() {
     setSelectedCategory(categoryId);
     const { results } = await getProductsFromCategory(categoryId);
     setProducts(results);
-    setIsSearched(false);
+    setIsSearched(true);
     setIsLoading(false);
   };
 
@@ -42,7 +42,7 @@ export default function Categories() {
               />
               <label
                 htmlFor={ `categoria-${category.id}` }
-                className={ `cursor-pointer ${
+                className={ `cursor-pointer hover:opacity-30 ${
                   selectedCategory === category.id ? 'font-bold' : ''
                 }` }
               >
