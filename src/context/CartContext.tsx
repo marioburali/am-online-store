@@ -7,6 +7,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartType>({});
   const [cartLength, setCartLength] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   function getCart() {
     const getCartItems = localStorage.getItem('cart');
@@ -18,12 +19,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return getCartLength ? JSON.parse(getCartLength) : 0;
   }
 
+  function getTotalPrice() {
+    const getCartLength = localStorage.getItem('totalPrice');
+    return getCartLength ? JSON.parse(getCartLength) : 0;
+  }
+
   useEffect(() => {
     setCart(getCart());
     setCartLength(getCartSize());
+    setTotalPrice(getTotalPrice());
   }, []);
 
-  const value = { cartLength, setCartLength, cart, setCart, getCartSize };
+  const value = { cartLength, setCartLength, cart, setCart, getCartSize, totalPrice, setTotalPrice };
 
   return (
     <CartContext.Provider value={ value }>

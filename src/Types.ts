@@ -93,4 +93,6 @@ export type CartContextType = {
   cartLength: number;
   setCartLength: React.Dispatch<React.SetStateAction<number>>;
   getCartSize: () => number;
+  totalPrice: number;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
 };

@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { formatPrice } from '../helpers/formatPrice';
 
 function Cart() {
-  const { cart } = useCartContext();
+  const { cart, totalPrice } = useCartContext();
   const { decrementQuantity, incrementQuantity, removeProduct } = useCart();
 
   return (Object.values(cart).length === 0 ? (<h2 className="absolute inset-0 flex justify-center items-center">Seu carrinho está vazio</h2>)
@@ -41,6 +41,14 @@ function Cart() {
             <NavLink to="/">
               <Button variant="secondary">Conferir Mais Produtos</Button>
             </NavLink>
+            <div className="mt-4 flex justify-between items-center font-bold">
+              <p>Total:</p>
+              <p>
+                R$
+                {' '}
+                {formatPrice(totalPrice)}
+              </p>
+            </div>
             <NavLink to="/checkout">
               <Button variant="gradient">Comprar</Button>
             </NavLink>
