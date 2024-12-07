@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { CartType } from '../Types';
-import useCart from '../hooks/useCart';
+import { useCartContext } from '../context/CartContext';
 
 function Cart() {
-  const { cart, setCart } = useCart();
+  const { cart, setCart } = useCartContext();
 
   const updateCart = (updatedCart: CartType) => {
     localStorage.setItem('cart', JSON.stringify(updatedCart));

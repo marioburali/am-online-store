@@ -1,20 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { ScrollArea } from './ui/scroll-area';
-import { CartType, Product } from '../Types';
+import { Product } from '../Types';
 import { useCartContext } from '../context/CartContext';
 import { formatPrice } from '../helpers/formatPrice';
 
 export default function CartSummary() {
-  const [cartItems, setCartItems] = useState<CartType>({});
+  const { cart, cartLength } = useCartContext();
   const [total, setTotal] = useState(0);
-  const { cartLength } = useCartContext();
 
   useEffect(() => {
-    const getCartItems = localStorage.getItem('cart');
-    const cart = getCartItems ? JSON.parse(getCartItems) as CartType : {};
-    setCartItems(cart);
-
     const cartTotal = Object.values(cart).reduce((acc, item) => {
       return acc + item.price * item.quantity;
     }, 0);
@@ -32,21 +27,21 @@ export default function CartSummary() {
       </CardHeader>
       <CardContent>
         <ScrollArea className="h-[600px] w-full rounded-md border p-4">
-          {Object.values(cartItems).map((item: Product & { quantity: number }) => (
-            <div key={ item.id } className="flex justify-between items-center mb-4">
+          {Object.values(cart).map((product: Product & { quantity: number }) => (
+            <div key={ product.id } className="flex justify-between items-center mb-4">
               <div className="flex items-center">
-                <img src={ item.thumbnail } alt="" width="48" height="48" className="mr-3 rounded-md object-cover" />
+                <img src={ product.thumbnail } alt="" width="48" height="48" className="mr-3 rounded-md object-cover" />
                 <div>
-                  <p className="font-medium">{item.title}</p>
+                  <p className="font-medium">{product.title}</p>
                   <p className="text-sm text-gray-500">
                     Quantidade:
                     {' '}
-                    {item.quantity}
+                    {product.quantity}
                   </p>
                 </div>
                 <p className="text-sm">
                   R$&nbsp;
-                  {formatPrice((item.price * item.quantity))}
+                  {formatPrice((product.price * product.quantity))}
                 </p>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { useCartContext } from '../context/CartContext';
 
 function AddToCart({ product }: AddToCartProps) {
-  const { setCartLength } = useCartContext();
+  const { setCartLength, setCart } = useCartContext();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
@@ -24,6 +24,7 @@ function AddToCart({ product }: AddToCartProps) {
     localStorage.setItem('cartsize', JSON.stringify(cartSize + 1));
     setCartLength((prevState) => prevState + 1);
     localStorage.setItem('cart', JSON.stringify(cart));
+    setCart(cart);
   };
 
   return (
