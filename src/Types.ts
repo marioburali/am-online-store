@@ -4,18 +4,15 @@ export type Category = {
 };
 
 export type CategoriesProps = {
-  setResults: React.Dispatch<React.SetStateAction<Product[]>>;
   setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type SearchBarProps = {
-  setResults: React.Dispatch<React.SetStateAction<Product[]>>;
   setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type ProductsListProps = {
   isSearched: boolean,
-  products: Product[],
   showAddToCart?: boolean,
 };
 

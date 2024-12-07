@@ -3,14 +3,16 @@ import { SearchBarProps } from '../Types';
 import { getProductsFromQuery } from '../services/api';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { useProductContext } from '../context/ProductContext';
 
-function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
+function SearchBar({ setIsSearched }: SearchBarProps) {
+  const { setProducts } = useProductContext();
   const [query, setQuery] = useState('');
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { results } = await getProductsFromQuery(query);
-    setResults(results);
+    setProducts(results);
     setIsSearched(true);
   };
 
@@ -24,7 +26,7 @@ function SearchBar({ setResults, setIsSearched }: SearchBarProps) {
               id="query-input"
               data-testid="query-input"
               value={ query }
-              placeholder='Digite o nome do produto'
+              placeholder="Digite o nome do produto"
               onChange={ ({ target }) => setQuery(target.value) }
             />
           </label>

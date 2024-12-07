@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories, getProductsFromCategory } from '../services/api';
 import { Category, CategoriesProps } from '../Types';
+import { useProductContext } from '../context/ProductContext';
 
-export default function Categories({ setResults, setIsSearched }: CategoriesProps) {
+export default function Categories({ setIsSearched }: CategoriesProps) {
+  const { setProducts } = useProductContext();
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -15,8 +17,8 @@ export default function Categories({ setResults, setIsSearched }: CategoriesProp
   }, []);
 
   const handleCategory = async (categoryId: string) => {
-    const data = await getProductsFromCategory(categoryId);
-    setResults(data.results);
+    const { results } = await getProductsFromCategory(categoryId);
+    setProducts(results);
     setIsSearched(false);
   };
 
