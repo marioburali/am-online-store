@@ -15,7 +15,7 @@ function ProductsList({ showAddToCart = true }: ProductsListProps) {
         key={ product.id }
       >
         <div className="card hover:bg-gray-100 hover:shadow-lg transition-all duration-300">
-          <ProductCard { ...product } isDetailedView={ false } />
+          <ProductCard product={ product } isDetailedView={ false } />
           {showAddToCart && (<AddToCart product={ product } />)}
         </div>
       </NavLink>)))

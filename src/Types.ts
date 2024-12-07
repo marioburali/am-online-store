@@ -4,15 +4,20 @@ export type Category = {
 };
 
 export type ProductsListProps = {
-  showAddToCart?: boolean,
+  showAddToCart?: boolean;
 };
 
 export type AddToCartProps = {
-  product: Product,
+  product: Product;
+};
+
+export type ProductCardProps = {
+  product: Product;
+  isDetailedView?: boolean;
 };
 
 export type CartType = {
-  [id: string]: Product
+  [id: string]: Product;
 };
 
 export type Product = {

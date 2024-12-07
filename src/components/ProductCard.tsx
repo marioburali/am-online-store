@@ -1,18 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Comment, Product } from '../Types';
+import { Comment, ProductCardProps } from '../Types';
 import RatingAndComment from './RatingAndComment';
-import { formatPrice } from '@/helpers/formatPrice';
+import { formatPrice } from '../helpers/formatPrice';
 
-interface ProductCardProps extends Product {
-  isDetailedView?: boolean;
-}
-
-function ProductCard({ id,
-  title,
-  thumbnail,
-  price,
-  isDetailedView = true }: ProductCardProps) {
-  const [comments, setComments] = useState<Comment[]>([]);
+function ProductCard({ product, isDetailedView = true }: ProductCardProps) {
+  const [, setComments] = useState<Comment[]>([]);
+  const { id, thumbnail, title, price } = product;
 
   useEffect(() => {
     const savedReviews = JSON.parse(localStorage.getItem(id) || '[]');
