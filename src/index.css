@@ -133,7 +133,9 @@ textarea {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  max-width: 400px;
+  max-width: 350px;
+  height: 450px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;

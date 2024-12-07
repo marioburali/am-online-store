@@ -33,7 +33,6 @@ function SearchBar() {
           <Button
             variant="secondary"
             type="submit"
-            data-testid="query-button"
           >
             Pesquisar
           </Button>
