@@ -1,7 +1,3 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
-import { FaCheck } from 'react-icons/fa';
 import { AddToCartProps } from '../Types';
 import { Button } from './ui/button';
 import useCart from '../hooks/useCart';
