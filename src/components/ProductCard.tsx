@@ -32,6 +32,8 @@ function ProductCard({ product, isDetailedView = true }: ProductCardProps) {
     navigate(`/product/${createURLSlug(product.title)}`);
   };
 
+  const installmentPrice = price / 10;
+
   return (
     <Card id={ id } className="flex flex-col h-full">
       <CardHeader className="relative pt-[75%]">
@@ -54,7 +56,7 @@ function ProductCard({ product, isDetailedView = true }: ProductCardProps) {
           </CardTitle>
         </button>
         <div className="mt-auto">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between">
             <CardDescription className="text-lg font-bold">
               R$
               {' '}
@@ -67,6 +69,11 @@ function ProductCard({ product, isDetailedView = true }: ProductCardProps) {
               </div>
             )}
           </div>
+          <CardDescription className="text-sm text-gray-500">
+            ou 10x de R$
+            {' '}
+            {formatPrice(installmentPrice)}
+          </CardDescription>
           <AddToCart product={ product } />
         </div>
       </CardContent>
