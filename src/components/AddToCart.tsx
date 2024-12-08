@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { FaCheck } from 'react-icons/fa';
 import { AddToCartProps } from '../Types';
 import { Button } from './ui/button';
 import useCart from '../hooks/useCart';
@@ -29,10 +30,15 @@ function AddToCart({ product }: AddToCartProps) {
     <Button
       variant={ isAdded ? 'success' : 'gradient' }
       onClick={ handleClick }
-      className={ `buttonCart w-full ${isAdded ? 'disabled:opacity-100 disabled:cursor-not-allowed' : ''}` }
+      className={ `buttonCart w-full transition-all duration-300 ${isAdded ? 'disabled:opacity-100 disabled:cursor-not-allowed' : ''}` }
       disabled={ isAdded }
     >
-      {isAdded ? 'Item Adicionado' : 'Adicionar ao carrinho'}
+      {isAdded ? (
+        <div className="flex justify-evenly grow">
+          <p>Item Adicionado</p>
+          <FaCheck />
+        </div>
+      ) : 'Adicionar ao carrinho'}
     </Button>
   );
 }
