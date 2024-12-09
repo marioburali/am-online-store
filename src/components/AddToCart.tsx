@@ -2,7 +2,7 @@ import { AddToCartProps } from '../Types';
 import { Button } from './ui/button';
 import useCart from '../hooks/useCart';
 
-function AddToCart({ product }: AddToCartProps) {
+function AddToCart({ product, classCard }: AddToCartProps) {
   const { addToCart } = useCart();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -14,7 +14,7 @@ function AddToCart({ product }: AddToCartProps) {
     <Button
       variant="gradient"
       onClick={ handleClick }
-      className="buttonCart w-full"
+      className={ classCard }
     >
       Adicionar ao carrinho
     </Button>

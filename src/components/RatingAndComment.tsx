@@ -51,7 +51,7 @@ export default function RatingAndComment({ productId }: { productId: string }) {
 
   return (
     <div>
-      <h3>Avalie o produto:</h3>
+      <h4>Avalie o produto:</h4>
       <form noValidate onSubmit={ handleSubmit }>
         {error && <p className="text-red-500">{error}</p>}
 

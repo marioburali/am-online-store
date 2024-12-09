@@ -52,7 +52,7 @@ function ProductCard({ product, isDetailedView = true }: ProductCardProps) {
       <CardContent className="p-4 flex flex-col flex-grow">
         <button className="text-left hover:underline" onClick={ handleClick }>
           <CardTitle className="text-sm font-medium line-clamp-2 mb-2 flex-grow">
-            {title}
+            <h3>{title}</h3>
           </CardTitle>
         </button>
         <div className="mt-auto">
@@ -74,14 +74,19 @@ function ProductCard({ product, isDetailedView = true }: ProductCardProps) {
             {' '}
             {formatPrice(installmentPrice)}
           </CardDescription>
-          <AddToCart product={ product } />
         </div>
       </CardContent>
-      {isDetailedView && (
+      {isDetailedView ? (
         <CardFooter>
+          <AddToCart product={ product } classCard="" />
           <RatingAndComment productId={ id } />
         </CardFooter>
+      ) : (
+        <CardFooter>
+          <AddToCart product={ product } classCard="buttonCart w-full" />
+        </CardFooter>
       )}
+
     </Card>
   );
 }

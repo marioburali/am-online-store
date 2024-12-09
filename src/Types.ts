@@ -9,6 +9,7 @@ export type ProductsListProps = {
 
 export type AddToCartProps = {
   product: Product;
+  classCard: string;
 };
 
 export type ProductCardProps = {

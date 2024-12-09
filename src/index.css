@@ -110,7 +110,20 @@ h2 {
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 17px;
+}
+
+h4 {
+  font-size: 17px;
+  margin-top: 25px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+p {
+  margin: 10px 0;
 }
 
 .cardImg {
@@ -122,6 +135,7 @@ h3 {
 
 .email {
   max-width: 50%;
+  margin: 12px 0;
 }
 
 textarea {
@@ -129,10 +143,10 @@ textarea {
 }
 
 .buttonCart {
-  margin: 10px 0px 0px 0px;
-  /* border-radius: 0px 0px 20px 20px; */
+  border-radius: 0px 0px 12px 12px;
   background-color: rgb(255, 255, 255);
   padding: 25px;
+  width: 100%;
 }
 
 .singleCard {
